@@ -1,0 +1,14 @@
+{
+  "name": "express-starter",
+  "version": "0.0.0",
+  "description": "a basic express web app",
+  "main": "app.js",
+  "dependencies": {
+    "express": "3.x",
+    "ejs": "0.8.x",
+    "jslint": "0.2.x"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
