@@ -26,23 +26,23 @@ app.get('/', function(req, res) {
 
 app.get('/submit_disease', function(req, res) {
   var diseaseForm = req.query;
-  var firstName = diseaseForm['firstname'];
-  var lastName = diseaseForm['lastname'];
-  var sex = diseaseForm['sex'];
+  var name = diseaseForm['name'];
+  var description = diseaseForm['description'];
+  var notes = diseaseForm['notes'];
 
-  console.log('first name: ' + firstName);
-  console.log('last name: ' + lastName);
-  console.log('sex: ' + sex);
+  console.log('name: ' + name);
+  console.log('description: ' + description);
+  console.log('notes: ' + notes);
 
   var checkSubmit = function() {
-    if (firstName == '' || lastName == '' || !(sex == 'male' || sex == 'female')) {
+    if (name == '' || description == '' || notes == '') {
       return false;
     }
     return true;
   }
 
   if (checkSubmit()) {
-    var disease_info = firstName + ' ' + lastName + ' ' + sex; 
+    var disease_info = name + ' ' + description + ' ' + notes; 
     db.run('INSERT INTO diseases_table VALUES ("' + disease_info + '")');
   } else {
     console.log('one or more fields were left empty');
