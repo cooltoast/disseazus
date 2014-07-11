@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <h1>List of diseases</h1>
   <% for (var i=0; i < diseases.length; i++) { %>
-    <p><%= diseases[i]['disease'] %></p>
+    <p><h3><%= diseases[i]['disease'].substr(diseases[i]['disease'].indexOf('name'), diseases[i]['disease'].indexOf(', description')) %></h3></p>
+    <p><%= diseases[i]['disease'].substr(diseases[i]['disease'].indexOf('description'), diseases[i]['disease'].indexOf(', notes')) %></p>
+    <p><%= diseases[i]['disease'].substr(diseases[i]['disease'].indexOf('notes')) %></p>
+    <p></p>
   <% } %>
 </head>
 </html>

@@ -42,8 +42,7 @@ app.get('/submit_disease', function(req, res) {
   }
 
   if (checkSubmit()) {
-    var disease_info = name + ' ' + description + ' ' + notes; 
-    db.run('INSERT INTO diseases_table VALUES ("' + disease_info + '")');
+    db.run('INSERT INTO diseases_table VALUES ("name: ' + name + ", description: " + description + ", notes: " + notes + '")');
   } else {
     console.log('one or more fields were left empty');
   }
