@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <h1>List of diseases</h1>
-  <% for (var i=0; i < diseases.length; i++) { %>
-    <p><h3><%= diseases[i]['disease'].substr(diseases[i]['disease'].indexOf('name'), diseases[i]['disease'].indexOf(', description')) %></h3></p>
-    <p><%= diseases[i]['disease'].substr(diseases[i]['disease'].indexOf('description'), diseases[i]['disease'].indexOf(', notes')) %></p>
-    <p><%= diseases[i]['disease'].substr(diseases[i]['disease'].indexOf('notes')) %></p>
-    <p></p>
+  <% for (var i = 0; i < diseases.length; i++) { %>
+  <p><h3><%= diseases[i]['disease'].split('~~~~')[0].substr(6) %></h3></p>
+  <p><%= diseases[i]['disease'].split('~~~~')[1] %></p>
+  <p><%= diseases[i]['disease'].split('~~~~')[2] %></p>
+  <p><%= diseases[i]['disease'].split('~~~~')[3] %></p>
+  <br>
   <% } %>
 </head>
 </html>
