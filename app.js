@@ -28,21 +28,31 @@ app.get('/submit_disease', function(req, res) {
   var diseaseForm = req.query;
   var name = diseaseForm['name'];
   var description = diseaseForm['description'];
+  var source = diseaseForm['source'];
   var notes = diseaseForm['notes'];
 
   console.log('name: ' + name);
   console.log('description: ' + description);
+  console.log('source: ' + source);
   console.log('notes: ' + notes);
 
   var checkSubmit = function() {
-    if (name == '' || description == '' || notes == '') {
+    if (name == '' || description == '' || source == '' || notes == '') {
       return false;
     }
     return true;
   }
 
+  // TODO: insert the stringified JSON to db for easier parsing when displaying diseases
+  // instead of this janky-ass tilda delimitation
   if (checkSubmit()) {
-    db.run('INSERT INTO diseases_table VALUES ("name: ' + name + ", description: " + description + ", notes: " + notes + '")');
+    //jsonDbEnry = '{\"name\": \"' + name + "\", \"description\": \"" + description + "\", \"source\": \"" + source + "\", \"notes\": \"" + notes + '\"}'
+    try {
+      db.run('INSERT INTO diseases_table VALUES ("name: ' + name + "~~~~description: " + description + "~~~~source: " + source + '~~~~notes: ' + notes + '")');
+    } catch(err) {
+      console.log('well shit there\'s an error');
+      console.log(err);
+    }
   } else {
     console.log('one or more fields were left empty');
   }
