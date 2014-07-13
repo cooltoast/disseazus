@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Diseases Database</title>
+<h3>Diseases Database</h3>
+
+</head>
+<body>
   <div id='form_error'>
     Make sure to fill out all areas of form
   </div>
@@ -8,12 +13,17 @@
     <form name="input" action="/submit_disease" method="get">
     Disease name: <input type="text" name="name"><br>
     Description: <input type="text" name="description"><br>
+    Website/source: <input type="text" name="source"><br>
     Notes: <input type="text" name="notes"><br>
     <input type="submit" value="Submit"><br>
     </form>
+    <!--
+    Notes
+    <br><textarea rows="4" cols="50" name="notes" form="usrform">Insert notes here...</textarea>
+    -->
   </div>
   <div>
     <a href="/display_diseases">View diseases</a> 
   </div>
-</head>
+</body>
 </html>
