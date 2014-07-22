@@ -3,11 +3,18 @@
 <head>
   <h1>List of diseases</h1>
   <% for (var i = 0; i < diseases.length; i++) { %>
-  <p><h3><%= diseases[i]['disease'].split('~~~~')[0].substr(6) %></h3></p>
-  <p><%= diseases[i]['disease'].split('~~~~')[1] %></p>
-  <p><%= diseases[i]['disease'].split('~~~~')[2] %></p>
-  <p><%= diseases[i]['disease'].split('~~~~')[3] %></p>
-  <br>
+    <p><h3><%= diseases[i]['disease'].split('~~~~')[0].substr(6) %></h3></p>
+    <script type="text/javascript">
+      var newLink = document.createElement('a');
+      var linkText = document.createTextNode("Source");
+      newLink.appendChild(linkText);
+      newLink.title = "Source for disease";
+      newLink.href = '<%= diseases[i]['disease'].split('~~~~')[2].substr(8) %>';
+      document.body.appendChild(newLink);
+    </script>
+    <p><%= diseases[i]['disease'].split('~~~~')[1] %></p>
+    <p><%= diseases[i]['disease'].split('~~~~')[3] %></p>
+    <br>
   <% } %>
 </head>
 </html>
