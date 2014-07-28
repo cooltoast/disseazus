@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Diseases Database</title>
-<h3>Diseases Database</h3>
-
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <title>Diseases Database</title>
+  <h2 align="center" style="color:white">Diseases Database</h2>
+  <style>
+    body 
+      {
+        background: url('http://p1.pichost.me/i/5/1282860.jpg') no-repeat; 
+        background-color:#cccccc;
+      }
+  </style>
 </head>
 <body>
-  <div id='form_error'>
+  <div align="center" style="color:white">
     Make sure to fill out all areas of form
-  </div>
-  <div>
-    <form name="input" action="/submit_disease" method="get">
-    Disease name: <input type="text" name="name"><br>
-    Description: <input type="text" name="description"><br>
-    Website/source: <input type="text" name="source"><br>
-    Notes: <input type="text" name="notes"><br>
-    <input type="submit" value="Submit"><br>
+    <p></p>
+    <form class="pure-form pure-form-aligned" name="input" action="/submit_disease" method="get">
+        <div class="pure-control-group">
+          <input name="name" type="text" align="center" placeholder="Disease name">
+        </div>
+
+        <div class="pure-control-group">
+          <input name="description" type="text" placeholder="Description">
+        </div>
+
+        <div class="pure-control-group">
+          <input name="source" type="text" placeholder="Source">
+        </div>
+
+        <div class="pure-control-group">
+          <input name="notes" type="text" placeholder="Notes">
+        </div>
+
+        <div class="pure-control-group">
+          <input type="submit" value="Submit" class="pure-button pure-button-primary"></button>
+        </div>
     </form>
-    <!--
-    Notes
-    <br><textarea rows="4" cols="50" name="notes" form="usrform">Insert notes here...</textarea>
-    -->
-  </div>
-  <div>
-    <a href="/display_diseases">View diseases</a> 
+    <style scoped>
+      .button-secondary {
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        background: rgb(66, 184, 221);
+      }
+
+    </style>
+    <a class="button-secondary pure-button" href="/display_diseases">View diseases</a> 
   </div>
 </body>
 </html>

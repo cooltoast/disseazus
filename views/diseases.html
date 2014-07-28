@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
   <h1>List of diseases</h1>
+  <style>
+    body 
+      {
+        background-color:#cccccc;
+      }
+  </style>
+</head>
+<body>
   <% for (var i = 0; i < diseases.length; i++) { %>
     <p><h3><%= diseases[i]['disease'].split('~~~~')[0].substr(6) %></h3></p>
     <script type="text/javascript">
@@ -16,5 +25,5 @@
     <p><%= diseases[i]['disease'].split('~~~~')[3] %></p>
     <br>
   <% } %>
-</head>
+</body>
 </html>
