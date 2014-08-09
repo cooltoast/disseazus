@@ -43,12 +43,9 @@ app.get('/submit_disease', function(req, res) {
     return true;
   }
 
-  // TODO: insert the stringified JSON to db for easier parsing when displaying diseases
-  // instead of this janky-ass tilda delimitation
   if (checkSubmit()) {
-    //jsonDbEnry = '{\"name\": \"' + name + "\", \"description\": \"" + description + "\", \"source\": \"" + source + "\", \"notes\": \"" + notes + '\"}'
     try {
-      diseaseEntry = {};
+      var diseaseEntry = {};
       diseaseEntry['name'] = name;
       diseaseEntry['description'] = description;
       diseaseEntry['source'] = source;

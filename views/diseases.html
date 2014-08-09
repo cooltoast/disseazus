@@ -12,10 +12,12 @@
 </head>
 <body>
   <% for (var i = 0; i < diseases.length; i++) { %>
-    <p><h3><%= JSON.parse(diseases[i]['disease'])['name'] %></p></h3>
-    <a href=<%= JSON.parse(diseases[i]['disease'])['source'] %>>Source</a>
-    <p>Description: <%= JSON.parse(diseases[i]['disease'])['description'] %></p>
-    <p>Notes: <%= JSON.parse(diseases[i]['disease'])['notes'] %></p>
+    <% var diseaseEntry = JSON.parse(diseases[i]['disease']) %>
+    <p><h3><%= diseaseEntry['name'] %></p></h3>
+    <a href=<%= diseaseEntry['source'] %>>Source</a>
+    <p>Description: <%= diseaseEntry['description'] %></p>
+    <p>Notes: <%= diseaseEntry['notes'] %></p>
+    <br>
   <% } %>
 </body>
 </html>
