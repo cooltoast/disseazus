@@ -48,7 +48,16 @@ app.get('/submit_disease', function(req, res) {
   if (checkSubmit()) {
     //jsonDbEnry = '{\"name\": \"' + name + "\", \"description\": \"" + description + "\", \"source\": \"" + source + "\", \"notes\": \"" + notes + '\"}'
     try {
-      db.run('INSERT INTO diseases_table VALUES ("name: ' + name + "~~~~description: " + description + "~~~~source: " + source + '~~~~notes: ' + notes + '")');
+      diseaseEntry = {};
+      diseaseEntry['name'] = name;
+      diseaseEntry['description'] = description;
+      diseaseEntry['source'] = source;
+      diseaseEntry['notes'] = notes;
+      diseaseEntryStr = JSON.stringify(diseaseEntry);
+
+      var stmt = db.prepare("INSERT INTO diseases_table VALUES (?)");
+      stmt.run(diseaseEntryStr);
+      stmt.finalize();
     } catch(err) {
       console.log('well shit there\'s an error');
       console.log(err);
